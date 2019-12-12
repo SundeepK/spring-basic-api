@@ -1,15 +1,14 @@
 package com.sundeepk.spring.basic.api.controller;
 
 import org.hamcrest.Matchers;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
-
 
 public class DefaultControllerTest {
 
@@ -18,7 +17,7 @@ public class DefaultControllerTest {
     private DefaultController underTest;
 
 
-    @Before
+    @BeforeEach
     public void setUp() {
         underTest = new DefaultController();
     }
@@ -31,9 +30,8 @@ public class DefaultControllerTest {
 
         mockMvc.perform(param)
                 .andExpect((MockMvcResultMatchers.jsonPath("$.message", Matchers.containsString("foo"))))
-                .andExpect((MockMvcResultMatchers.jsonPath("$.message", Matchers.containsString("someBar"))))
+                .andExpect((MockMvcResultMatchers.jsonPath("$.message", Matchers.containsString(""))))
                 .andReturn();
-
     }
 
 }
